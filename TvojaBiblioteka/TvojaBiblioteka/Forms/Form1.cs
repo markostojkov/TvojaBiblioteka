@@ -29,6 +29,7 @@ namespace TvojaBiblioteka
 
         private void MainFormLoaded(object sender, EventArgs e)
         {
+            label2.Text = $"Welcome {CurrentUser.User.Username}";
             BooksForUser = DbContext.Books.Where(x => x.ApplicationUserFk == CurrentUser.User.Id).ToList();
             var booksForUserArray = BooksForUser.Select(x => new ListViewItem(x.ToString())).ToArray();
             listView1.Items.Clear();
